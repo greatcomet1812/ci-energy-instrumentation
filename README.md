@@ -16,7 +16,7 @@ Implementation (team repository): https://github.com/DaxLynch/ecocli-utility
 
 Example output when running the integration script:
 
-![Script output](./assets/ecoci-integrated.png)
+![Script output](./assets/ecoci-script-output.png)
 
 The script inserts Eco-CI steps where missing and skips jobs where they are already present.
 
