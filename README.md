@@ -105,15 +105,16 @@ finally:
     os.remove(tmp_csv)  # deleted after every use
 ```
 
-**After:**
+**After** ([795fc9c](https://github.com/DaxLynch/ecocli-utility/commit/795fc9c)):
 ```python
-csv_filename = os.path.join(DATA_DIR, f"{zone_key}_2024_hourly.csv")
+csv_filename = os.path.join(DATA_DIR, f"{lat}_{lon}_carbon.csv")
 
 if os.path.exists(csv_filename):
     print(f"📂 Using cached data from {csv_filename}")
     return load_carbon_data(csv_filename)
 
-# Only reached on a cache miss
+# Only reached on a cache miss: look up the zone key, then download
+...
 dl_response = requests.get(csv_url)
 with open(csv_filename, "wb") as f:
     f.write(dl_response.content)
